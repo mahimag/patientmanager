@@ -1,0 +1,9 @@
+.patientlist{
+    width: 100%;
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 70px;
+}
+

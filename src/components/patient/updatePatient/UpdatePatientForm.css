@@ -1,0 +1,15 @@
+#UpdatePatientForm{
+    width: 400px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#UpdatePatientForm label{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#UpdatePatientForm .UpdatePatientForm__btn{
+    margin-top: 45px;
+}

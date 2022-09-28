@@ -1,0 +1,11 @@
+#patient {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#patient .patient__title {
+    margin-bottom: 40px;
+}

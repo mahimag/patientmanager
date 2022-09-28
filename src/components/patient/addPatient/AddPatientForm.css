@@ -1,0 +1,15 @@
+#patientForm{
+    width: 400px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#patientForm label{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#patientForm .patientForm__btn{
+    margin-top: 45px;
+}
