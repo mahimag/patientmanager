@@ -17,7 +17,7 @@ export const addAccessTokensToLocalStorage = (
  */
 export const addDefaultsToAxios = () => {
   const accessToken = localStorage.getItem("accessToken");
-  axios.defaults.baseURL = process.env.BACKEND_URL;
+  axios.defaults.baseURL = "https://secret-eyrie-73204.herokuapp.com/";
 
   if (accessToken) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
