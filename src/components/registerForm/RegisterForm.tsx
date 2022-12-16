@@ -55,6 +55,7 @@ const RegisterForm: React.FC = () => {
       <Form.Item
         name="password"
         className="registerForm__item"
+        data-testid="test-password-item"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input.Password placeholder="Password" />
@@ -63,6 +64,7 @@ const RegisterForm: React.FC = () => {
       <Form.Item
         name="confirmed"
         className="registerForm__item"
+        data-testid="test-confirm-password-item"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input.Password placeholder="Confirm Password" />
@@ -72,7 +74,7 @@ const RegisterForm: React.FC = () => {
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-        <Link to="/login">Cancel.</Link>
+        <Link to="/login">{"  "}Cancel.</Link>
       </Form.Item>
     </Form>
   );

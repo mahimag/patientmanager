@@ -1,6 +1,6 @@
 import { Button, Form, Input } from "antd";
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   addAccessTokensToLocalStorage,
@@ -11,7 +11,10 @@ import "./LoginForm.css";
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onFinish = async (values: any) => {
+    setIsLoading(true);
     const credentials = {
       email: values.email,
       password: values.password,
@@ -32,6 +35,8 @@ const LoginForm: React.FC = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 

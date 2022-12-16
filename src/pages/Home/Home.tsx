@@ -12,9 +12,15 @@ const Home: React.FC = () => {
   return (
     <div id="home">
       <NavBar />
-      <Title className="home__title">Home</Title>
+      <Title className="home__title" data-testid="test-home-title">
+        Home
+      </Title>
       <PatientList />
-      <Button className="newpatient" onClick={() => navigate("/patient/add")}>
+      <Button
+        className="newpatient"
+        data-testid="test-home-btn"
+        onClick={() => navigate("/patient/add")}
+      >
         Add Patient
       </Button>
     </div>

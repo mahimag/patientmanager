@@ -11,7 +11,7 @@ const UpdatePatient: React.FC = () => {
     <>
       <NavBar />
       <div id="updatePatient">
-        <Title className="updatePatient__title">UpdatePatient</Title>
+        <Title className="updatePatient__title">Update Patient</Title>
         <UpdatePatientForm />
       </div>
     </>

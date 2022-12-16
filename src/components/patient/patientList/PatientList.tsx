@@ -12,7 +12,7 @@ const PatientList = () => {
 
   const onDeleteHandler = async (id: number) => {
     await axios.delete(`/patients/${id}`);
-    navigate("/");
+    navigate("/patient");
   };
   const columns: ColumnsType<Patient> = [
     {

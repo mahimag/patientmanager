@@ -18,6 +18,7 @@ export default function Routing() {
         <Route path="/patient" element={<Home />} />
         <Route path="/patient/add" element={<AddPatient />} />
         <Route path="/patient/update/:id" element={<UpdatePatient />} />
+        <Route path="/patient/delete/:id" element={<Home />} />
       </Route>
     </Routes>
   );

@@ -1,21 +1,22 @@
 .register {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.register__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: white;
-    padding: 3em;
-    box-shadow: 0 0px 10px;
+.register__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  padding: 3em;
+  box-shadow: 0 0px 10px;
+  min-width: 375px;
 }
 
 .register .register__title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
