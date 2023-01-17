@@ -1,11 +1,12 @@
-import { Button, Form, Input } from "antd";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Button, Form, Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import {
   addAccessTokensToLocalStorage,
   addDefaultsToAxios,
 } from "../../utils/localStorage";
+
 import "./LoginForm.css";
 
 const LoginForm: React.FC = () => {
@@ -21,14 +22,12 @@ const LoginForm: React.FC = () => {
     };
 
     try {
-      const res = await axios("/signin", {
-        method: "POST",
+      const res = await axios.post("/signin", {
         data: credentials,
       });
 
       if (res.data) {
         const data = res.data.data;
-        console.log("data", data);
         addAccessTokensToLocalStorage(data.accessToken, "true", data.id);
         addDefaultsToAxios();
         navigate("/patient");
@@ -74,7 +73,7 @@ const LoginForm: React.FC = () => {
         className="loginForm__btn"
         wrapperCol={{ offset: 11, span: 16 }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" data-testid="login-form-btn">
           Submit
         </Button>
       </Form.Item>

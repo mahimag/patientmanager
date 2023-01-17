@@ -1,12 +1,12 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Upload } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Form, Input, Upload } from "antd";
+
 import "./AddPatientForm.css";
 
 const normFile = (e: any) => {
-  console.log("Upload event:", e);
   if (Array.isArray(e)) {
     return e;
   }
@@ -31,8 +31,7 @@ const AddPatientForm = () => {
     formData.append("user_id", localStorage.getItem("id") as string);
 
     try {
-      const res = await axios("/patients/add", {
-        method: "POST",
+      const res = await axios.post("/patients/add", {
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -66,7 +65,7 @@ const AddPatientForm = () => {
         name="firstname"
         rules={[{ required: true, message: "Please input your first name!" }]}
       >
-        <Input />
+        <Input data-testid="input-first-name"/>
       </Form.Item>
 
       <Form.Item
@@ -74,7 +73,7 @@ const AddPatientForm = () => {
         name="lastname"
         rules={[{ required: true, message: "Please input your last name!" }]}
       >
-        <Input />
+        <Input data-testid="input-last-name"/>
       </Form.Item>
 
       <Form.Item
@@ -82,7 +81,7 @@ const AddPatientForm = () => {
         name="email"
         rules={[{ required: true, message: "Please input your email!" }]}
       >
-        <Input />
+        <Input data-testid="input-email"/>
       </Form.Item>
 
       <Form.Item
@@ -90,7 +89,7 @@ const AddPatientForm = () => {
         name="address"
         rules={[{ required: true, message: "Please input your address!" }]}
       >
-        <Input />
+        <Input data-testid="input-address"/>
       </Form.Item>
 
       <Form.Item
@@ -98,7 +97,7 @@ const AddPatientForm = () => {
         name="number"
         rules={[{ required: true, message: "Please input your number!" }]}
       >
-        <Input />
+        <Input data-testid="input-phone"/>
       </Form.Item>
 
       <Form.Item
@@ -106,7 +105,7 @@ const AddPatientForm = () => {
         name="dob"
         rules={[{ required: true, message: "Please input your DOB!" }]}
       >
-        <Input />
+        <Input data-testid="input-dob"/>
       </Form.Item>
 
       <Form.Item
@@ -115,14 +114,14 @@ const AddPatientForm = () => {
         valuePropName="fileList"
         getValueFromEvent={normFile}
       >
-        <Upload name="photo" action="/upload.do" listType="picture">
+        <Upload name="photo" action="/upload.do" listType="picture" data-testid="upload-input">
           <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>
       </Form.Item>
 
       <Form.Item name="fav" label="Fav">
         <Checkbox.Group>
-          <Checkbox value={true} onChange={(e) => setFav(e.target.checked)} />
+          <Checkbox value={true} onChange={(e) => setFav(e.target.checked)} data-testid="input-checkbox"/>
         </Checkbox.Group>
       </Form.Item>
 
@@ -130,7 +129,7 @@ const AddPatientForm = () => {
         className="AddPatientForm__btn"
         wrapperCol={{ offset: 11, span: 16 }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" data-testid="add-patient-btn">
           Submit
         </Button>
       </Form.Item>

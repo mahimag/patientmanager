@@ -1,11 +1,12 @@
+import axios from "axios";
 import { Table, Button } from "antd";
+import { useEffect, useState } from "react";
 import type { ColumnsType } from "antd/es/table";
-import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+
 import "./PatientList.css";
 import { Patient } from "../../../interfaces/Patient";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
 const PatientList = () => {
   const navigate = useNavigate();
@@ -65,12 +66,12 @@ const PatientList = () => {
   }, []);
 
   const getData = (id: number) => {
-    axios("/patients", {
-      method: "POST",
-      data: {
-        id: localStorage.getItem("id"),
-      },
-    })
+    axios
+      .post("/patients", {
+        data: {
+          id: localStorage.getItem("id"),
+        },
+      })
       .then((res) => {
         const newData = res.data.data.map((item: Patient, idx: number) => {
           return {

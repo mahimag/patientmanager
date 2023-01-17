@@ -1,15 +1,14 @@
+import axios from "axios";
 import React from "react";
 import { Button, Form, Input } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
 
   const onFinish = (values: any) => {
     if (values.password === values.confirmed) {
-      axios("/signup", {
-        method: "POST",
+      axios.post("/signup", {
         data: {
           email: values.email,
           password: values.password,
@@ -41,7 +40,7 @@ const RegisterForm: React.FC = () => {
         id="registerForm__item"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input placeholder="Username" />
+        <Input placeholder="Username" data-testid="input-register-username"/>
       </Form.Item>
 
       <Form.Item
@@ -49,7 +48,7 @@ const RegisterForm: React.FC = () => {
         className="registerForm__item"
         rules={[{ required: true, message: "Please input your email!" }]}
       >
-        <Input placeholder="Email" />
+        <Input placeholder="Email" data-testid="input-register-email"/>
       </Form.Item>
 
       <Form.Item
@@ -58,7 +57,7 @@ const RegisterForm: React.FC = () => {
         data-testid="test-password-item"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input.Password placeholder="Password" />
+        <Input.Password placeholder="Password" data-testid="input-register-pass"/>
       </Form.Item>
 
       <Form.Item
@@ -67,11 +66,11 @@ const RegisterForm: React.FC = () => {
         data-testid="test-confirm-password-item"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input.Password placeholder="Confirm Password" />
+        <Input.Password placeholder="Confirm Password" data-testid="input-register-confirm-pass"/>
       </Form.Item>
 
       <Form.Item id="registerForm__btn">
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" data-testid="register-form-btn">
           Submit
         </Button>
         <Link to="/login">{"  "}Cancel.</Link>

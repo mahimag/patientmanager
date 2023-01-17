@@ -1,11 +1,12 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Upload } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { UploadOutlined } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";
-import { Patient, PatientToUpdate } from "../../../interfaces/Patient";
-import { getUserId } from "../../../utils/localStorage";
+import { Button, Checkbox, Form, Input, Upload } from "antd";
+
 import "./UpdatePatientForm.css";
+import { getUserId } from "../../../utils/localStorage";
+import { Patient, PatientToUpdate } from "../../../interfaces/Patient";
 
 interface UpdatePatientFormInterface {
   oldData?: Patient;
@@ -44,7 +45,9 @@ const UpdatePatientForm = (props: UpdatePatientFormInterface) => {
         });
         setIsLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error)
+      });
   }, [id]);
 
   const onFinish = async (values: any) => {
